@@ -4,79 +4,278 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register - WebApp Project</title>
+
+    <title>Create Account | CodeRwanda Tech</title>
+    <meta name="description" content="Create your CodeRwanda Tech account.">
+
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --brand: #8E1EA2;
+            --brand-dark: #701782;
+        }
+
+        body {
+            font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+        }
+
+        .brand-bg {
+            background-color: var(--brand);
+        }
+
+        .brand-text {
+            color: var(--brand);
+        }
+
+        .brand-button {
+            background-color: var(--brand);
+            transition: background-color 0.2s ease;
+        }
+
+        .brand-button:hover {
+            background-color: var(--brand-dark);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--brand);
+            box-shadow: 0 0 0 3px rgba(142, 30, 162, 0.1);
+        }
+    </style>
 </head>
 
-<body class="bg-slate-100 min-h-screen flex items-center justify-center">
+<body class="bg-gray-50 min-h-screen flex flex-col">
 
-    <main class="bg-white p-10 rounded-xl shadow-lg w-full max-w-md">
-        <h1 class="text-3xl font-bold text-center mb-8">Registration page</h1>
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-100">
+        <nav class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
 
-        <form id="registerForm" class="space-y-5">
-            <input name="username" placeholder="Username" required
-                class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+            <a href="/" class="flex items-center gap-3">
+                <div
+                    class="w-11 h-11 brand-bg rounded-xl flex items-center justify-center text-white font-extrabold text-xl">
+                    CR
+                </div>
 
-            <input name="password" type="password" placeholder="Password" minlength="8" required
-                class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
+                <div>
+                    <h1 class="text-xl font-extrabold tracking-tight">
+                        Code<span class="brand-text">Rwanda</span>
+                    </h1>
+                    <p class="text-xs text-gray-500 font-medium tracking-widest uppercase">
+                        Technology
+                    </p>
+                </div>
+            </a>
 
-            <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700">
-                Register
-            </button>
-        </form>
+            <a href="/" class="text-sm font-semibold text-gray-600 hover:text-purple-700">
+                Back to Home
+            </a>
 
-        <p id="message" class="text-center mt-5 text-sm"></p>
+        </nav>
+    </header>
 
-        <p class="text-center mt-5 text-slate-600">
-            Already have an account?
-            <a href="/login.html" class="text-blue-600">Login</a>
-        </p>
+
+    <!-- Registration Section -->
+    <main class="flex-1 flex items-center justify-center px-6 py-14">
+
+        <div class="w-full max-w-md">
+
+            <div class="bg-white border border-gray-100 rounded-2xl shadow-sm p-8 sm:p-10">
+
+                <!-- Heading -->
+                <div class="text-center mb-8">
+
+                    <div
+                        class="w-16 h-16 brand-bg rounded-2xl flex items-center justify-center text-white text-2xl font-extrabold mx-auto mb-6">
+                        CR
+                    </div>
+
+                    <p class="brand-text text-sm font-bold uppercase tracking-widest">
+                        Join CodeRwanda
+                    </p>
+
+                    <h2 class="text-3xl font-extrabold text-gray-900 mt-3">
+                        Create Account
+                    </h2>
+
+                    <p class="text-gray-500 mt-3 leading-6">
+                        Get started and explore technology, learning, and opportunities.
+                    </p>
+
+                </div>
+
+
+                <!-- Registration Form -->
+                <form id="registerForm" class="space-y-5">
+
+                    <div>
+                        <label for="username" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Username
+                        </label>
+
+                        <input id="username" name="username" type="text" placeholder="Choose a username"
+                            autocomplete="username" minlength="3" required
+                            class="form-input w-full border border-gray-200 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400 transition">
+                    </div>
+
+
+                    <div>
+                        <label for="password" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Password
+                        </label>
+
+                        <div class="relative">
+                            <input id="password" name="password" type="password" placeholder="Create a password"
+                                autocomplete="new-password" minlength="8" required
+                                class="form-input w-full border border-gray-200 rounded-lg px-4 py-3 pr-16 text-gray-900 placeholder-gray-400 transition">
+
+                            <button type="button" id="togglePassword"
+                                class="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-semibold brand-text hover:underline">
+                                Show
+                            </button>
+                        </div>
+
+                        <p class="text-xs text-gray-400 mt-2">
+                            Use at least 8 characters.
+                        </p>
+                    </div>
+
+
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-semibold text-gray-700 mb-2">
+                            Confirm Password
+                        </label>
+
+                        <input id="confirmPassword" type="password" placeholder="Enter your password again"
+                            autocomplete="new-password" minlength="8" required
+                            class="form-input w-full border border-gray-200 rounded-lg px-4 py-3 text-gray-900 placeholder-gray-400 transition">
+                    </div>
+
+
+                    <button type="submit" id="registerButton"
+                        class="brand-button w-full text-white font-bold py-3.5 rounded-lg">
+                        Create Account
+                    </button>
+
+                    <p id="message" role="status" aria-live="polite" class="text-center text-sm hidden"></p>
+
+                </form>
+
+
+                <!-- Login Link -->
+                <div class="border-t border-gray-100 mt-8 pt-6 text-center">
+
+                    <p class="text-sm text-gray-500">
+                        Already have an account?
+                        <a href="/login.html" class="brand-text font-bold hover:underline">
+                            Sign In
+                        </a>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <p class="text-center text-sm text-gray-400 mt-7">
+                Technology. Innovation. Opportunity.
+            </p>
+
+        </div>
+
     </main>
 
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-white">
+        <div class="max-w-7xl mx-auto px-6 py-6 text-center">
+
+            <p class="text-sm text-gray-400">
+                © <span id="year"></span> CodeRwanda Tech. All rights reserved.
+            </p>
+
+        </div>
+    </footer>
+
+
+    <!-- Registration Functionality -->
     <script>
-        document.getElementById("registerForm").addEventListener("submit", async (e) => {
-            e.preventDefault();
+        document.getElementById("year").textContent = new Date().getFullYear();
 
-            const message = document.getElementById("message");
-            const button = e.target.querySelector("button");
+        const registerForm = document.getElementById("registerForm");
+        const passwordInput = document.getElementById("password");
+        const confirmPassword = document.getElementById("confirmPassword");
+        const message = document.getElementById("message");
+        const registerButton = document.getElementById("registerButton");
 
-            const data = Object.fromEntries(new FormData(e.target));
+        // Show or hide password
+        document.getElementById("togglePassword").addEventListener("click", function () {
+            const isPassword = passwordInput.type === "password";
 
-            button.disabled = true;
-            button.textContent = "Registering...";
+            passwordInput.type = isPassword ? "text" : "password";
+            confirmPassword.type = isPassword ? "text" : "password";
+
+            this.textContent = isPassword ? "Hide" : "Show";
+        });
+
+        // Registration request
+        registerForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            message.classList.add("hidden");
+
+            // Check password confirmation
+            if (passwordInput.value !== confirmPassword.value) {
+                message.textContent = "Passwords do not match.";
+                message.className = "text-center text-sm text-red-600";
+                return;
+            }
+
+            const data = {
+                username: document.getElementById("username").value.trim(),
+                password: passwordInput.value
+            };
+
+            registerButton.disabled = true;
+            registerButton.textContent = "Creating Account...";
 
             try {
                 const response = await fetch("/api/register", {
                     method: "POST",
-                    headers: { "Content-Type": "application/json" },
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
                     body: JSON.stringify(data)
                 });
 
                 const result = await response.json();
 
-                message.textContent = result.message || "Registration failed.";
-                message.className = response.ok
-                    ? "text-center mt-5 text-sm text-green-600"
-                    : "text-center mt-5 text-sm text-red-600";
+                message.textContent = result.message ||
+                    (response.ok ? "Registration successful." : "Registration failed.");
 
                 if (response.ok) {
+                    message.className = "text-center text-sm text-green-700";
+
                     setTimeout(() => {
-                        window.location.href = "/dashboard.html";
-                    }, 1000);
+                        window.location.href = "/login.html";
+                    }, 1200);
+
                 } else {
-                    button.disabled = false;
-                    button.textContent = "Register";
+                    message.className = "text-center text-sm text-red-600";
+                    registerButton.disabled = false;
+                    registerButton.textContent = "Create Account";
                 }
 
             } catch (error) {
-                message.textContent = "Unable to connect to the server.";
-                message.className = "text-center mt-5 text-sm text-red-600";
+                message.textContent = "Unable to connect to the server. Please try again.";
+                message.className = "text-center text-sm text-red-600";
 
-                button.disabled = false;
-                button.textContent = "Register";
+                registerButton.disabled = false;
+                registerButton.textContent = "Create Account";
             }
         });
     </script>
+
 </body>
 
 </html>
