@@ -4,32 +4,474 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebApp Project</title>
+
+    <title>CodeRwanda Tech | Technology for a Better Future</title>
+    <meta name="description"
+        content="CodeRwanda Tech delivers technology solutions, digital skills training, and electronics to empower individuals and businesses.">
+
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        :root {
+            --brand: #8E1EA2;
+            --brand-dark: #701782;
+            --ink: #19151D;
+            --muted: #716B75;
+            --surface: #F8F6F9;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+            color: var(--ink);
+        }
+
+        .brand-bg {
+            background-color: var(--brand);
+        }
+
+        .brand-text {
+            color: var(--brand);
+        }
+
+        .brand-border {
+            border-color: var(--brand);
+        }
+
+        .brand-button {
+            background-color: var(--brand);
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .brand-button:hover {
+            background-color: var(--brand-dark);
+            transform: translateY(-2px);
+        }
+
+        .service-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 35px rgba(35, 20, 40, 0.08);
+        }
+
+        .hero-pattern {
+            background-color: #F8F6F9;
+            background-image: radial-gradient(#E8DCEB 0.8px, transparent 0.8px);
+            background-size: 22px 22px;
+        }
+    </style>
 </head>
 
-<body class="bg-slate-50 min-h-screen">
+<body class="bg-white">
 
-    <nav class="bg-slate-900 text-white px-8 py-5 flex justify-between items-center">
-        <h1 class="text-xl font-bold">WebApp Project</h1>
-        <div class="space-x-6">
-            <a href="/" class="hover:text-blue-300">Home</a>
-            <a href="/register.html" class="hover:text-blue-300">Register</a>
-            <a href="/login.html" class="hover:text-blue-300">Login</a>
-        </div>
-    </nav>
+    <!-- Navigation -->
+    <header class="sticky top-0 z-50 bg-white border-b border-gray-100">
+        <nav class="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between">
 
-    <main class="max-w-4xl mx-auto text-center py-32 px-6">
-        <h2 class="text-5xl font-bold text-slate-900 mb-6">
-            Welcome to WebApp Project
-        </h2>
-        <p class="text-lg text-slate-600 mb-8">
-            A modern Node.js application demonstrating user registration and login.
-        </p>
-        <a href="/register.html" class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700">
-            Get Started
-        </a>
+            <a href="/" class="flex items-center gap-3">
+                <div
+                    class="w-11 h-11 brand-bg rounded-xl flex items-center justify-center text-white font-extrabold text-xl">
+                    CR
+                </div>
+
+                <div>
+                    <h1 class="text-xl font-extrabold tracking-tight">
+                        Code<span class="brand-text">Rwanda</span>
+                    </h1>
+                    <p class="text-xs text-gray-500 font-medium tracking-widest uppercase">
+                        Technology
+                    </p>
+                </div>
+            </a>
+
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold text-gray-700">
+                <a href="#home" class="hover:text-purple-700">Home</a>
+                <a href="#about" class="hover:text-purple-700">About</a>
+                <a href="#services" class="hover:text-purple-700">Services</a>
+                <a href="#contact" class="hover:text-purple-700">Contact</a>
+            </div>
+
+            <div class="flex items-center gap-3">
+                <a href="/login.html"
+                    class="hidden sm:inline-block px-5 py-2.5 text-sm font-semibold text-gray-800 hover:text-purple-700">
+                    Login
+                </a>
+
+                <a href="/register.html" class="brand-button text-white px-5 py-3 rounded-lg text-sm font-semibold">
+                    Get Started
+                </a>
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- Hero -->
+    <main>
+
+        <section id="home" class="hero-pattern">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 py-24 lg:py-32">
+
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+                    <div>
+                        <div
+                            class="inline-flex items-center gap-2 bg-white border border-purple-100 rounded-full px-4 py-2 mb-8">
+                            <span class="w-2 h-2 brand-bg rounded-full"></span>
+                            <span class="text-sm font-semibold brand-text">
+                                Building Rwanda Through Technology
+                            </span>
+                        </div>
+
+                        <h2 class="text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight text-gray-950">
+                            Empowering
+                            <span class="brand-text">Rwanda</span>
+                            Through Technology.
+                        </h2>
+
+                        <p class="mt-7 text-lg leading-8 text-gray-600 max-w-xl">
+                            We help individuals and businesses grow through
+                            innovative technology solutions, practical digital
+                            skills training, and accessible technology products.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4 mt-10">
+                            <a href="/register.html"
+                                class="brand-button inline-flex items-center justify-center gap-3 text-white px-7 py-4 rounded-lg font-semibold">
+                                Get Started
+                                <span aria-hidden="true">→</span>
+                            </a>
+
+                            <a href="#services"
+                                class="inline-flex items-center justify-center px-7 py-4 rounded-lg border border-gray-300 bg-white text-gray-800 font-semibold hover:border-purple-500 hover:text-purple-700">
+                                Explore Our Services
+                            </a>
+                        </div>
+
+                        <div class="mt-12 flex items-center gap-5 text-sm text-gray-500">
+                            <div
+                                class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center brand-text font-bold">
+                                CR
+                            </div>
+                            <p>
+                                <strong class="text-gray-800">CodeRwanda Tech</strong><br>
+                                Technology. Innovation. Opportunity.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <!-- Hero visual -->
+                    <div class="relative">
+                        <div class="bg-white border border-gray-100 rounded-2xl shadow-xl p-6 lg:p-8">
+
+                            <div class="flex justify-between items-center mb-8">
+                                <div>
+                                    <p class="text-sm text-gray-500 font-medium">
+                                        Our approach
+                                    </p>
+                                    <h3 class="text-2xl font-bold mt-1">
+                                        Technology that moves you forward.
+                                    </h3>
+                                </div>
+
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center brand-text text-xl font-bold">
+                                    CR
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+
+                                <div class="flex items-center gap-5 p-5 rounded-xl bg-purple-50">
+                                    <div
+                                        class="w-12 h-12 rounded-lg brand-bg flex items-center justify-center text-white text-xl">
+                                        &lt;/&gt;
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">
+                                            Technology Solutions
+                                        </h4>
+                                        <p class="text-sm text-gray-600 mt-1">
+                                            Digital products and innovative solutions.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-5 p-5 rounded-xl bg-gray-50">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-gray-900 flex items-center justify-center text-white text-xl">
+                                        +
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">
+                                            Digital Skills & Training
+                                        </h4>
+                                        <p class="text-sm text-gray-600 mt-1">
+                                            Practical learning for the digital future.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center gap-5 p-5 rounded-xl bg-gray-50">
+                                    <div
+                                        class="w-12 h-12 rounded-lg bg-purple-100 flex items-center justify-center brand-text text-xl">
+                                        ◆
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-gray-900">
+                                            Electronics & E-commerce
+                                        </h4>
+                                        <p class="text-sm text-gray-600 mt-1">
+                                            Technology products for everyday needs.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="mt-7 border-t border-gray-100 pt-6 flex items-center justify-between">
+                                <p class="text-sm text-gray-500">
+                                    Discover what's possible.
+                                </p>
+                                <span class="brand-text font-bold text-sm">
+                                    CodeRwanda Tech
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <div class="absolute -z-10 -bottom-5 -right-5 w-40 h-40 bg-purple-100 rounded-2xl"></div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- About -->
+        <section id="about" class="py-24">
+            <div class="max-w-5xl mx-auto px-6 text-center">
+
+                <p class="brand-text font-bold text-sm uppercase tracking-widest">
+                    About CodeRwanda
+                </p>
+
+                <h2 class="text-3xl lg:text-5xl font-extrabold mt-4 leading-tight">
+                    Making technology more accessible, practical and impactful.
+                </h2>
+
+                <p class="mt-7 text-lg text-gray-600 leading-8 max-w-3xl mx-auto">
+                    CodeRwanda Tech is focused on using technology to create
+                    opportunities, solve real-world challenges, develop digital
+                    skills, and support business growth. We believe technology
+                    should empower people and contribute to Rwanda's development.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- Services -->
+        <section id="services" class="py-24 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+                <div class="max-w-2xl mb-14">
+                    <p class="brand-text font-bold text-sm uppercase tracking-widest">
+                        What We Do
+                    </p>
+
+                    <h2 class="text-4xl font-extrabold mt-4">
+                        Solutions designed for growth.
+                    </h2>
+
+                    <p class="mt-5 text-gray-600 leading-7">
+                        We combine technology, education, and digital commerce
+                        to help people and organizations move forward.
+                    </p>
+                </div>
+
+
+                <div class="grid md:grid-cols-3 gap-7">
+
+                    <!-- Service 1 -->
+                    <article class="service-card bg-white border border-gray-100 rounded-xl p-8">
+                        <div
+                            class="w-14 h-14 brand-bg rounded-xl flex items-center justify-center text-white text-2xl font-bold">
+                            &lt;/&gt;
+                        </div>
+
+                        <h3 class="text-xl font-bold mt-7">
+                            Technology Solutions
+                        </h3>
+
+                        <p class="text-gray-600 leading-7 mt-4">
+                            We develop digital solutions that help businesses,
+                            institutions, and individuals solve problems and
+                            improve their operations.
+                        </p>
+
+                        <a href="/register.html" class="inline-block mt-7 brand-text font-bold text-sm hover:underline">
+                            Get Started →
+                        </a>
+                    </article>
+
+
+                    <!-- Service 2 -->
+                    <article class="service-card bg-white border border-gray-100 rounded-xl p-8">
+                        <div
+                            class="w-14 h-14 bg-gray-900 rounded-xl flex items-center justify-center text-white text-2xl font-bold">
+                            +
+                        </div>
+
+                        <h3 class="text-xl font-bold mt-7">
+                            Training & Education
+                        </h3>
+
+                        <p class="text-gray-600 leading-7 mt-4">
+                            We provide practical technology training and
+                            digital learning opportunities to prepare people
+                            for modern careers.
+                        </p>
+
+                        <a href="/register.html" class="inline-block mt-7 brand-text font-bold text-sm hover:underline">
+                            Start Learning →
+                        </a>
+                    </article>
+
+
+                    <!-- Service 3 -->
+                    <article class="service-card bg-white border border-gray-100 rounded-xl p-8">
+                        <div
+                            class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center brand-text text-2xl font-bold">
+                            ◆
+                        </div>
+
+                        <h3 class="text-xl font-bold mt-7">
+                            Electronics & E-commerce
+                        </h3>
+
+                        <p class="text-gray-600 leading-7 mt-4">
+                            We make technology products more accessible
+                            through electronics sales and convenient
+                            online shopping experiences.
+                        </p>
+
+                        <a href="/register.html" class="inline-block mt-7 brand-text font-bold text-sm hover:underline">
+                            Explore More →
+                        </a>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Call to action -->
+        <section class="py-24">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+                <div class="brand-bg rounded-2xl px-8 py-16 lg:px-16 text-center text-white">
+
+                    <p class="text-sm font-bold uppercase tracking-widest text-purple-100">
+                        Your Next Opportunity Starts Here
+                    </p>
+
+                    <h2 class="text-3xl lg:text-5xl font-extrabold mt-5 leading-tight">
+                        Let's build something meaningful with technology.
+                    </h2>
+
+                    <p class="text-purple-100 mt-6 max-w-2xl mx-auto leading-7">
+                        Whether you want a technology solution, practical
+                        digital skills, or access to technology products,
+                        CodeRwanda is ready to help.
+                    </p>
+
+                    <div class="mt-9 flex flex-wrap justify-center gap-4">
+                        <a href="/register.html"
+                            class="bg-white text-purple-800 px-7 py-4 rounded-lg font-bold hover:bg-purple-50">
+                            Create an Account
+                        </a>
+
+                        <a href="/login.html"
+                            class="border border-white/70 text-white px-7 py-4 rounded-lg font-bold hover:bg-white hover:text-purple-800">
+                            Sign In
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
     </main>
+
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-950 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+            <div class="grid md:grid-cols-2 gap-12 pb-12">
+
+                <div>
+                    <a href="/" class="inline-flex items-center gap-3">
+                        <div
+                            class="w-11 h-11 brand-bg rounded-xl flex items-center justify-center font-extrabold text-xl">
+                            CR
+                        </div>
+                        <div>
+                            <h2 class="text-xl font-extrabold">
+                                Code<span class="text-purple-400">Rwanda</span>
+                            </h2>
+                            <p class="text-xs text-gray-400 uppercase tracking-widest">
+                                Technology
+                            </p>
+                        </div>
+                    </a>
+
+                    <p class="text-gray-400 leading-7 mt-6 max-w-md">
+                        Empowering Rwanda through technology, innovation,
+                        digital education, and accessible technology solutions.
+                    </p>
+                </div>
+
+
+                <div class="md:text-right">
+                    <h3 class="font-bold text-lg">Quick Links</h3>
+
+                    <div class="flex md:justify-end flex-wrap gap-x-7 gap-y-4 mt-6 text-gray-400 text-sm">
+                        <a href="/" class="hover:text-white">Home</a>
+                        <a href="#about" class="hover:text-white">About</a>
+                        <a href="#services" class="hover:text-white">Services</a>
+                        <a href="/register.html" class="hover:text-white">Register</a>
+                        <a href="/login.html" class="hover:text-white">Login</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div
+                class="border-t border-gray-800 pt-7 flex flex-col md:flex-row justify-between gap-4 text-sm text-gray-500">
+                <p>
+                    © <span id="year"></span> CodeRwanda Tech. All rights reserved.
+                </p>
+
+                <p>
+                    Technology. Innovation. Opportunity.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 
 </body>
 
