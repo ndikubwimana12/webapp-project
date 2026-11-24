@@ -17,10 +17,10 @@
             <input name="username" placeholder="Username" required
                 class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
 
-            <input name="password" type="password" placeholder="Password" required
+            <input name="password" type="password" placeholder="Password" minlength="8" required
                 class="w-full border p-3 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none">
 
-            <button class="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700">
+            <button type="submit" class="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700">
                 Register
             </button>
         </form>
@@ -37,19 +37,43 @@
         document.getElementById("registerForm").addEventListener("submit", async (e) => {
             e.preventDefault();
 
+            const message = document.getElementById("message");
+            const button = e.target.querySelector("button");
+
             const data = Object.fromEntries(new FormData(e.target));
 
-            const response = await fetch("/api/register", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(data)
-            });
+            button.disabled = true;
+            button.textContent = "Registering...";
 
-            const result = await response.json();
-            document.getElementById("message").textContent = result.message;
+            try {
+                const response = await fetch("/api/register", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                });
 
-            if (response.ok) {
-                window.location.href = "/dashboard.html";
+                const result = await response.json();
+
+                message.textContent = result.message || "Registration failed.";
+                message.className = response.ok
+                    ? "text-center mt-5 text-sm text-green-600"
+                    : "text-center mt-5 text-sm text-red-600";
+
+                if (response.ok) {
+                    setTimeout(() => {
+                        window.location.href = "/dashboard.html";
+                    }, 1000);
+                } else {
+                    button.disabled = false;
+                    button.textContent = "Register";
+                }
+
+            } catch (error) {
+                message.textContent = "Unable to connect to the server.";
+                message.className = "text-center mt-5 text-sm text-red-600";
+
+                button.disabled = false;
+                button.textContent = "Register";
             }
         });
     </script>
