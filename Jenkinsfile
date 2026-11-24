@@ -12,8 +12,8 @@ pipeline {
             steps {
                 sh '''
                     docker run --rm \
-                    -v "$WORKSPACE:/app" \
-                    -w /app \
+                    --volumes-from jenkins \
+                    -w "$WORKSPACE" \
                     node:22-alpine \
                     npm ci
                 '''
@@ -24,8 +24,8 @@ pipeline {
             steps {
                 sh '''
                     docker run --rm \
-                    -v "$WORKSPACE:/app" \
-                    -w /app \
+                    --volumes-from jenkins \
+                    -w "$WORKSPACE" \
                     node:22-alpine \
                     npm test
                 '''
